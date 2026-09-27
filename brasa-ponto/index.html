@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brasa & Ponto Espetaria | Sabor de verdade, direto da brasa</title>
+  <meta name="description" content="Brasa & Ponto Espetaria em Porto Nacional - TO. Espetinhos, marmitex, porções, hambúrgueres e combos. Sabor de verdade, direto da brasa. Peça agora!">
+  <meta name="keywords" content="espetaria, espetinho, churrasco, marmitex, hambúrguer, Porto Nacional, TO, delivery">
+  <meta name="author" content="Brasa & Ponto Espetaria">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Brasa & Ponto Espetaria | Sabor de verdade, direto da brasa">
+  <meta property="og:description" content="Espetinhos, marmitex, porções e hambúrgueres com sabor autêntico da brasa. Delivery em Porto Nacional - TO.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#home" class="logo" aria-label="Brasa & Ponto - Página inicial">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Brasa <span>&</span> Ponto</span>
+      </a>
+      
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#cardapio" class="nav-link">Cardápio</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
+          <li><a href="#localizacao" class="nav-link">Localização</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600&q=80" alt="Churrasco e espetinhos grelhados na brasa" class="hero-img" loading="eager">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <span class="hero-badge">Porto Nacional • TO</span>
+          <h1 class="hero-title">Sabor de verdade,<br><span>direto da brasa.</span></h1>
+          <p class="hero-desc">Espetinhos suculentos, marmitex generosas, porções irresistíveis e hambúrgueres artesanais. Feito na hora, com qualidade e o melhor preço da região.</p>
+          <div class="hero-btns">
+            <a href="#cardapio" class="btn btn-primary">
+              <i class="fas fa-utensils"></i> Ver Cardápio
+            </a>
+            <button class="btn btn-secondary" id="openCartHero">
+              <i class="fas fa-shopping-bag"></i> Fazer Pedido
+            </button>
+          </div>
+        </div>
+        <div class="hero-highlights">
+          <div class="highlight-card">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&q=80" alt="Espetinho de carne">
+            <span>Espetinhos</span>
+          </div>
+          <div class="highlight-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Hambúrguer artesanal">
+            <span>Hambúrgueres</span>
+          </div>
+          <div class="highlight-card">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" alt="Porções e combos">
+            <span>Combos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mais Pedidos -->
+    <section class="mais-pedidos section" id="mais-pedidos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Destaques</span>
+          <h2 class="section-title">Mais Pedidos</h2>
+          <p class="section-desc">Os favoritos da casa que conquistam todo mundo</p>
+        </div>
+        <div class="products-grid" id="maisPedidosGrid">
+          <!-- Preenchido via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="cardapio section" id="cardapio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Nosso Menu</span>
+          <h2 class="section-title">Cardápio Completo</h2>
+          <p class="section-desc">Escolha seus favoritos e monte seu pedido</p>
+        </div>
+        
+        <div class="category-tabs" role="tablist" aria-label="Categorias do cardápio">
+          <button class="cat-tab active" data-category="todos" role="tab" aria-selected="true">Todos</button>
+          <button class="cat-tab" data-category="espetinhos" role="tab">Espetinhos</button>
+          <button class="cat-tab" data-category="combos" role="tab">Combos</button>
+          <button class="cat-tab" data-category="marmitex" role="tab">Marmitex</button>
+          <button class="cat-tab" data-category="hamburgueres" role="tab">Hambúrgueres</button>
+          <button class="cat-tab" data-category="porcoes" role="tab">Porções</button>
+          <button class="cat-tab" data-category="bebidas" role="tab">Bebidas</button>
+        </div>
+        
+        <div class="products-grid" id="cardapioGrid">
+          <!-- Preenchido via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre section" id="sobre">
+      <div class="container">
+        <div class="sobre-grid">
+          <div class="sobre-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Equipe Brasa & Ponto preparando espetinhos" class="sobre-img">
+            <div class="sobre-badge">
+              <span class="badge-number">5+</span>
+              <span class="badge-text">Anos de experiência</span>
+            </div>
+          </div>
+          <div class="sobre-content">
+            <span class="section-badge">Nossa História</span>
+            <h2 class="section-title">Sobre a Brasa & Ponto</h2>
+            <p>A Brasa & Ponto nasceu da paixão por comida de verdade. Em Porto Nacional, decidimos criar um espaço onde o sabor autêntico da brasa encontra o atendimento rápido e preços que cabem no bolso.</p>
+            <p>Começamos pequenos, com espetinhos feitos na hora e o desejo de conquistar o paladar da cidade. Hoje somos referência em espetaria, marmitex e combos, sempre mantendo a qualidade e o carinho em cada pedido.</p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Anos de experiência</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">15k+</span>
+                <span class="stat-label">Clientes atendidos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Produtos no cardápio</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">4.9</span>
+                <span class="stat-label">Avaliação média</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avaliações -->
+    <section class="avaliacoes section" id="avaliacoes">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">O que dizem</span>
+          <h2 class="section-title">Avaliações dos Clientes</h2>
+          <p class="section-desc">Quem prova, volta. Veja o que nossos clientes falam</p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"Espetinho muito bem feito e chegou rapidinho. Com certeza vou pedir novamente."</p>
+            <div class="review-author">
+              <div class="author-avatar">LA</div>
+              <div>
+                <strong>Lucas Almeida</strong>
+                <span>Cliente frequente</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"Os combos valem muito a pena. A comida estava excelente e o atendimento nota 10!"</p>
+            <div class="review-author">
+              <div class="author-avatar">MS</div>
+              <div>
+                <strong>Mariana Souza</strong>
+                <span>Cliente</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"Atendimento rápido e comida muito saborosa. O X-Bacon é o melhor da cidade!"</p>
+            <div class="review-author">
+              <div class="author-avatar">GS</div>
+              <div>
+                <strong>Gabriel Santos</strong>
+                <span>Cliente</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"A marmitex especial é generosa e deliciosa. Recomendo demais para o almoço!"</p>
+            <div class="review-author">
+              <div class="author-avatar">AC</div>
+              <div>
+                <strong>Ana Clara</strong>
+                <span>Cliente</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"Batata com cheddar e bacon viciante. Pedimos toda semana. Nota 10!"</p>
+            <div class="review-author">
+              <div class="author-avatar">RF</div>
+              <div>
+                <strong>Rafael Ferreira</strong>
+                <span>Cliente frequente</span>
+              </div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"Ambiente agradável e comida de qualidade. O espetinho de frango com bacon é imperdível."</p>
+            <div class="review-author">
+              <div class="author-avatar">JP</div>
+              <div>
+                <strong>Juliana Pereira</strong>
+                <span>Cliente</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="localizacao section" id="localizacao">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Venha nos visitar</span>
+          <h2 class="section-title">Onde Estamos</h2>
+          <p class="section-desc">Estamos prontos para te receber ou entregar no conforto da sua casa</p>
+        </div>
+        <div class="local-grid">
+          <div class="local-info">
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h3>Endereço</h3>
+                <p>Rua das Palmeiras, 245<br>Centro — Porto Nacional, TO<br>CEP 77500-000</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sábado: 18h às 23h<br>Domingo: 18h às 22h</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h3>Telefone</h3>
+                <p><a href="tel:+5563999324569">(63) 99212-0651</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/5563999324569" target="_blank" rel="noopener">(63) 99212-0651</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="fab fa-instagram"></i></div>
+              <div>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/brasaponto" target="_blank" rel="noopener">@brasaponto</a></p>
+              </div>
+            </div>
+            <div class="local-actions">
+              <a href="https://wa.me/5563999324569" class="btn btn-primary" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+              </a>
+              <a href="https://maps.google.com/?q=Porto+Nacional+TO" class="btn btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-map"></i> Ver no Maps
+              </a>
+            </div>
+          </div>
+          <div class="local-map">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Porto Nacional - TO</p>
+              <span>Rua das Palmeiras, 245</span>
+              <a href="https://maps.google.com/?q=Porto+Nacional,+TO" target="_blank" rel="noopener" class="map-link">Abrir no Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Fale conosco</span>
+          <h2 class="section-title">Entre em Contato</h2>
+          <p class="section-desc">Dúvidas, sugestões ou elogios? Manda uma mensagem!</p>
+        </div>
+        <div class="contato-grid">
+          <form class="contato-form" id="contatoForm" novalidate>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(63) 99212-0651" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Enviar Mensagem
+            </button>
+          </form>
+          <div class="contato-sidebar">
+            <h3>Outras formas de contato</h3>
+            <a href="https://wa.me/5563999324569" class="contact-btn whatsapp" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>Resposta rápida</span>
+              </div>
+            </a>
+            <a href="https://instagram.com/brasaponto" class="contact-btn instagram" target="_blank" rel="noopener">
+              <i class="fab fa-instagram"></i>
+              <div>
+                <strong>Instagram</strong>
+                <span>@brasaponto</span>
+              </div>
+            </a>
+            <a href="https://maps.google.com/?q=Porto+Nacional+TO" class="contact-btn maps" target="_blank" rel="noopener">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Google Maps</strong>
+                <span>Como chegar</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-icon">🔥</span>
+            <span class="logo-text">Brasa <span>&</span> Ponto</span>
+          </a>
+          <p>Sabor de verdade, direto da brasa. Espetinhos, marmitex e muito mais em Porto Nacional - TO.</p>
+          <div class="social-links">
+            <a href="https://instagram.com/brasaponto" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5563999324569" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#avaliacoes">Avaliações</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Cardápio</h4>
+          <ul>
+            <li><a href="#cardapio">Espetinhos</a></li>
+            <li><a href="#cardapio">Combos</a></li>
+            <li><a href="#cardapio">Marmitex</a></li>
+            <li><a href="#cardapio">Hambúrgueres</a></li>
+            <li><a href="#cardapio">Porções</a></li>
+            <li><a href="#cardapio">Bebidas</a></li>
+          </ul>
+        </div>
+        <div class="footer-hours">
+          <h4>Horário</h4>
+          <p><strong>Seg a Sáb:</strong> 18h – 23h</p>
+          <p><strong>Domingo:</strong> 18h – 22h</p>
+          <p class="footer-phone"><i class="fas fa-phone"></i> (63) 99212-0651</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Brasa & Ponto Espetaria. Todos os direitos reservados.</p>
+        <p class="footer-note">Site desenvolvido para fins de portfólio • Conteúdo fictício</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Carrinho de pedidos">
+    <div class="cart-header">
+      <h2><i class="fas fa-shopping-bag"></i> Seu Pedido</h2>
+      <button class="cart-close" id="cartClose" aria-label="Fechar carrinho"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Seu carrinho está vazio</p>
+        <span>Adicione itens do cardápio</span>
+        <a href="#cardapio" class="btn btn-primary btn-sm" id="goToMenu">Ver Cardápio</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-totals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">R$ 0,00</span>
+        </div>
+        <div class="total-row total">
+          <span>Total</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full" id="btnCheckout">
+        <i class="fas fa-check"></i> Finalizar Pedido
+      </button>
+      <button class="btn btn-outline btn-full" id="btnClearCart">
+        Limpar Carrinho
+      </button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-labelledby="checkoutTitle" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="checkoutTitle">Finalizar Pedido</h2>
+        <button class="modal-close" id="checkoutClose" aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="checkoutForm" novalidate>
+          <div class="form-group">
+            <label for="clienteNome">Nome completo *</label>
+            <input type="text" id="clienteNome" required placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label for="clienteTel">Telefone / WhatsApp *</label>
+            <input type="tel" id="clienteTel" required placeholder="(63) 99212-0651">
+          </div>
+          <div class="form-group">
+            <label>Forma de entrega *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="entrega" value="retirada" checked>
+                <span>Retirada no local</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="entrega" value="delivery">
+                <span>Delivery</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group" id="enderecoGroup" style="display: none;">
+            <label for="clienteEndereco">Endereço completo *</label>
+            <textarea id="clienteEndereco" rows="2" placeholder="Rua, número, bairro, complemento"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="clienteObs">Observações</label>
+            <textarea id="clienteObs" rows="2" placeholder="Ex: sem cebola, ponto da carne..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Forma de pagamento *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="pagamento" value="pix" checked>
+                <span><i class="fas fa-qrcode"></i> Pix</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="pagamento" value="dinheiro">
+                <span><i class="fas fa-money-bill-wave"></i> Dinheiro</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="pagamento" value="cartao">
+                <span><i class="fas fa-credit-card"></i> Cartão</span>
+              </label>
+            </div>
+          </div>
+          <div class="order-summary" id="orderSummary"></div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fab fa-whatsapp"></i> Finalizar pelo WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal" role="dialog" aria-labelledby="successTitle" aria-modal="true">
+    <div class="modal-content modal-sm">
+      <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+      <h2 id="successTitle">Pedido enviado!</h2>
+      <p>Seu pedido foi encaminhado para o WhatsApp. Em breve entraremos em contato para confirmar.</p>
+      <button class="btn btn-primary" id="successClose">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
